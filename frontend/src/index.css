@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 240 10% 4%;
+        --card: 0 0% 100%;
+        --card-foreground: 240 10% 4%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 10% 4%;
+        --primary: 240 10% 4%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 240 5% 96%;
+        --secondary-foreground: 240 10% 4%;
+        --muted: 240 5% 96%;
+        --muted-foreground: 215 16% 47%;
+        --accent: 16 100% 50%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 220 13% 91%;
+        --input: 220 13% 91%;
+        --ring: 16 100% 50%;
+        --chart-1: 16 100% 50%;
+        --chart-2: 240 10% 20%;
+        --chart-3: 215 16% 47%;
+        --chart-4: 200 60% 45%;
+        --chart-5: 43 74% 55%;
+        --radius: 0.25rem;
+    }
+}
+
+@layer base {
+    * { @apply border-border; }
+    body { @apply bg-background text-foreground; }
+}
+
+.font-display { font-family: 'Archivo', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+/* Marketing dark helpers */
+.kem-dark { background-color: #050505; color: #fff; }
+.kem-grain::before {
+    content: "";
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.05; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.kem-glass {
+    background: rgba(5,5,5,0.7);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.text-balance { text-wrap: balance; }
+
+::selection { background: #FF4D00; color: #fff; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
+
+/* ===== Public LIGHT theme (default) — overrides dark utility tokens ===== */
+[data-theme="light"].kem-dark,
+[data-theme="light"] .kem-dark { background-color: #f5f4f1; color: #0f172a; }
+
+[data-theme="light"] .kem-glass {
+    background: rgba(255,255,255,0.82);
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+}
+
+[data-theme="light"] .bg-\[\#050505\] { background-color: #f5f4f1 !important; }
+[data-theme="light"] .bg-\[\#0a0a0c\] { background-color: #ffffff !important; }
+[data-theme="light"] .bg-\[\#0c0c0e\] { background-color: #ffffff !important; }
+[data-theme="light"] .bg-kem-surface { background-color: #ffffff !important; }
+[data-theme="light"] .bg-black { background-color: #e9e7e2 !important; }
+
+[data-theme="light"] [class*="text-white"] { color: rgba(15,23,42,0.60) !important; }
+[data-theme="light"] .text-white { color: #0f172a !important; }
+
+[data-theme="light"] [class*="border-white"] { border-color: rgba(15,23,42,0.12) !important; }
+[data-theme="light"] [class*="bg-white/"] { background-color: rgba(15,23,42,0.05) !important; }
+
+/* Sections that sit over dark media keep white text */
+[data-theme="light"] .kem-hero .text-white,
+[data-theme="light"] .kem-hero [class*="text-white"],
+[data-theme="light"] .on-media .text-white,
+[data-theme="light"] .on-media [class*="text-white"] { color: #ffffff !important; }
+[data-theme="light"] .on-media [class*="text-white"] { color: rgba(255,255,255,0.75) !important; }
+[data-theme="light"] .on-media h3, [data-theme="light"] .on-media h1,
+[data-theme="light"] .kem-hero h1 { color: #ffffff !important; }
+
+/* Card polish */
+[data-theme="light"] .kem-card { box-shadow: 0 1px 2px rgba(15,23,42,0.04); }
+

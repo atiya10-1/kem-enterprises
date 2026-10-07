@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /search
+Disallow: /compare
+Disallow: /enquiry
+Disallow: /request-quote
+Disallow: /catalogue/view/
+Disallow: /api/
+# Replace example.com after the production domain is purchased.
+Sitemap: https://www.example.com/sitemap.xml

@@ -1,0 +1,138 @@
+{
+  "theme_strategy": "Hybrid App (Dark Theme for Marketing to emphasize 3D/metallic visuals; Light Theme for Admin Dashboard for data density and clarity)",
+  "typography": {
+    "font_family": {
+      "heading": "Clash Display, Cabinet Grotesk, or Manrope (Premium Industrial / Architectural)",
+      "body": "Manrope or Inter (Clean, highly readable)",
+      "mono": "JetBrains Mono (For product specs/SKUs)"
+    },
+    "hierarchy": {
+      "h1": "text-5xl sm:text-6xl font-black tracking-tighter leading-none",
+      "h2": "text-3xl sm:text-4xl font-bold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-semibold",
+      "body": "text-base leading-relaxed",
+      "small_label": "text-xs uppercase tracking-[0.2em] font-bold"
+    },
+    "rules": [
+      "Never center-align large blocks of text; optical left-alignment creates structural tension.",
+      "Use tracking-tight for all headings above text-2xl.",
+      "Product SKUs and measurements must use monospaced fonts for tabular alignment."
+    ]
+  },
+  "colors": {
+    "marketing_dark": {
+      "background": "#050505",
+      "surface": "#121214",
+      "glass": "bg-black/60 backdrop-blur-2xl",
+      "border": "border-white/10",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#A0A5AF",
+      "accent": "#FF4D00",
+      "metallic_highlight": "bg-gradient-to-br from-white/20 via-white/5 to-transparent"
+    },
+    "admin_light": {
+      "background": "#F8F9FA",
+      "surface": "#FFFFFF",
+      "border": "#E5E7EB",
+      "text_primary": "#0A0A0C",
+      "text_secondary": "#64748B",
+      "accent": "#0A0A0C",
+      "accent_highlight": "#FF4D00"
+    }
+  },
+  "visual_enhancers": {
+    "borders": "1px solid borders globally to represent precision engineering. No soft edges. Max rounded-sm (2px) or completely sharp corners (rounded-none).",
+    "glassmorphism": "Crystal Variant for marketing sticky navs. bg-black/60 with backdrop-blur-xl, 1px inner top border border-white/20.",
+    "shadows": "Marketing: No soft drop shadows. Use harsh inner shadows or sharp glowing borders. Admin: Subtle ambient shadows shadow-sm for cards only.",
+    "textures": "Subtle grain on marketing backgrounds to give a tactile, raw industrial metal feel."
+  },
+  "grids_and_layouts": {
+    "marketing": {
+      "hero": "Full screen (min-h-screen). Absolute positioned 3D elements/images. Text anchored to left.",
+      "bento_features": "Asymmetric Bento Grid (grid-cols-1 md:grid-cols-12 gap-8). Mix span-4, span-8, span-12 for visual tension.",
+      "product_pdp": "3-column layout. Left (col-span-3): Hi-Res sticky image. Middle (col-span-6): Details/Specs. Right (col-span-3): Sticky Quote Builder card."
+    },
+    "admin": {
+      "structure": "Fixed 240px left sidebar, 1fr main content area.",
+      "density": "High density for data tables. Row heights of 40px. Strict left-aligned text, right-aligned numbers.",
+      "cards": "Flat, 1px border, white background. Grid cols-4 for KPI summaries at the top."
+    },
+    "spacing": "Use generous padding (p-12 to p-24) for marketing sections. Dense padding (p-4 to p-6) for admin views."
+  },
+  "component_rules": {
+    "html_vs_shadcn": "Marketing sections must use custom HTML/Tailwind for artistic layouts. Do NOT use Shadcn Card for marketing bento layouts. Admin must heavily use Shadcn UI (Table, Form, Select, Dialog).",
+    "buttons": "Sharp corners (rounded-none or rounded-sm). Hover state adds a 1px solid border or slightly translates X.",
+    "forms": "Use Shadcn Form. Inputs should have bg-transparent and bottom border only (border-b) for a clean architectural look in marketing, and standard box inputs in admin.",
+    "tables": "Admin tables must be scalable, scannable, with fixed headers."
+  },
+  "motion": {
+    "framer_motion": {
+      "hero_reveal": "initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}",
+      "scroll_parallax": "Use useScroll and useTransform for subtle 2.5D image depth on product images.",
+      "hover_states": "Product cards scale image by 1.05x, reveal action buttons via opacity transition."
+    },
+    "rules": [
+      "Avoid bouncing effects. Use strict, fast spring physics (stiffness: 300, damping: 30) for a mechanical feel.",
+      "No transition-all."
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "url": "https://images.pexels.com/photos/12951634/pexels-photo-12951634.jpeg",
+        "description": "Stainless steel pipes stacked in an industrial container.",
+        "category": "Hero Background / Global Abstract Texture"
+      },
+      {
+        "url": "https://images.pexels.com/photos/8940820/pexels-photo-8940820.jpeg",
+        "description": "Close-up of numerous stainless steel rods.",
+        "category": "Product Category: Stainless Steel Fittings"
+      },
+      {
+        "url": "https://images.pexels.com/photos/5233314/pexels-photo-5233314.jpeg",
+        "description": "Close-up of modern bridge cables against blue sky.",
+        "category": "Product Category: Wire Rope & Suspension"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1770444204807-75e106cf3e5b",
+        "description": "Modern staircase with glass railings attached to building.",
+        "category": "Product Category: Glass & Railing Hardware"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1548683726-203119be6a39",
+        "description": "Large group of metal flanges sitting on top of a table.",
+        "category": "About Us / Manufacturing Quality"
+      }
+    ],
+    "3d_libraries": [
+      "@react-three/fiber",
+      "@react-three/drei",
+      "framer-motion (for 2.5D scroll parallax if 3D models are unavailable)"
+    ]
+  },
+  "accessibility": {
+    "focus_states": "focus:ring-1 focus:ring-offset-2 focus:ring-[#FF4D00]",
+    "contrast": "Maintain 4.5:1 ratio. Text over images MUST have a linear gradient overlay (e.g. bg-gradient-to-r from-black/80 to-transparent)."
+  },
+  "instructions_to_main_agent": [
+    "CRITICAL: You are working with .js / .jsx files, NOT .tsx. All components must be valid JSX/JS, avoid TypeScript syntax.",
+    "CRITICAL: Do NOT use a generic SaaS blue for this brand. Stick strictly to Carbon, Silver, and the Orange accent.",
+    "CRITICAL: For the marketing site, DO NOT use rounded-lg or rounded-xl anywhere. Use rounded-none or rounded-sm for a sharp, machined, architectural aesthetic.",
+    "CRITICAL: All interactive and key informational elements MUST include a data-testid attribute in kebab-case based on role (e.g. data-testid=\"submit-quote-btn\").",
+    "CRITICAL: Admin dashboard tables must use dense mode (py-2 px-3 for cells) to match high-density 2026 SaaS trends.",
+    "CRITICAL: Implement two distinct contexts/layouts. A Dark Theme Marketing Layout, and a Light Theme SaaS Admin Layout.",
+    "CRITICAL: Use Lucide React for icons, but set strokeWidth to 1.5 to make them feel more premium and refined."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Avoid generic 'AI slop' aesthetics (centered layouts, simplistic gradients).",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glassmorphism effects with backdrop filters (12-24px blur) for sticky navs and overlays.",
+    "NEVER use universal transition (e.g. transition: all). Add transitions to specific properties.",
+    "DO NOT center align the app container (.App { text-align: center; } is banned).",
+    "Always use modern button styles with interaction animations.",
+    "NEVER use emojis for icons.",
+    "Every interaction needs micro-animations (hover states, transitions).",
+    "Use sonner for toasts.",
+    "Use pre-existing Shadcn components from src/components/ui when applicable."
+  ]
+}
